@@ -3,9 +3,7 @@ include("./include/header.php")
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black" ><h3>เมนู</h3></div>
 <div class="card ">
-
     <div class="card-body">
         <div id="wrapper">
 
@@ -23,7 +21,7 @@ include("./include/header.php")
                             <!-- Earnings (Monthly) Card Example -->
                             <?php 
                             $i=0;
-                                    foreach ($array_menu_admin_main['MENU'] as $key => $value) {     
+                                    foreach ($array_menu_admin_maiching['MENU'] as $key => $value) {     
                             ?>
                           
                             <div class="col-xl-3 col-md-6 mb-4" onclick="linkmenu('<?php echo $value['url'];?>')">
