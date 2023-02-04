@@ -229,7 +229,7 @@ if ($_GET['proc'] == 'add') {
                                         <td><?php echo get_nickname($rec2['player_id']); ?></td>
                                         <td><?php echo get_hero($rec2['hero_id']); ?></td>
                                         <td><?php echo get_lane($rec2['lane_id']); ?></td>
-                                        <td><?php echo $rec2['kill']; ?></td>
+                                        <td><?php echo $rec2['kills']; ?></td>
                                         <td><?php echo $rec2['death']; ?></td>
                                         <td><?php echo $rec2['assist']; ?></td>
                                         <td><?php echo $rec2['gold']; ?></td>
@@ -279,7 +279,7 @@ if ($_GET['proc'] == 'add') {
                                         <td><?php echo get_nickname($rec2['player_id']); ?></td>
                                         <td><?php echo get_hero($rec2['hero_id']); ?></td>
                                         <td><?php echo get_lane($rec2['lane_id']); ?></td>
-                                        <td><?php echo $rec2['kill']; ?></td>
+                                        <td><?php echo $rec2['kills']; ?></td>
                                         <td><?php echo $rec2['death']; ?></td>
                                         <td><?php echo $rec2['assist']; ?></td>
                                         <td><?php echo $rec2['gold']; ?></td>

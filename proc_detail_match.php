@@ -4,7 +4,7 @@ if ($_GET['proc'] != "") {
     $_POST['proc'] = "";
 }
 if ($_POST['proc'] == 'add') {
-    $sql = "INSERT INTO `match_player_details` (`hero_id`, `player_id`, `kill`, `assist`, `death`
+    $sql = "INSERT INTO `match_player_details` (`hero_id`, `player_id`, `kills`, `assist`, `death`
     , `gold`, `mvp`, `atk`, `def`, `team_fight`, `m_detail_id`, `lane_id`, `team_id`)
      VALUES ('".$_POST['hero']."', '".$_POST['player_id']."', 
      '".$_POST['kill']."','".$_POST['assist']."', '".$_POST['death']."'

@@ -92,15 +92,28 @@ if ($_GET['proc'] == 'add') {
                                                 $SQL1 = "SELECT * FROM matchs WHERE match_id='" . $_GET['match_id'] . "'";
                                                 $sql2 = mysqli_query($conn, $SQL1);
                                                 $rec1 = mysqli_fetch_array($sql2);
+                                                //----------------------------
+                                              // echo $SQL3 = "SELECT * FROM summary WHERE m_detail_id='" . $rec['m_detail_id'] . "'";
+                                                $SQL3 ="SELECT * FROM summary 
+                                                INNER JOIN match_details ON match_details.m_detail_id=summary.m_detail_id 
+                                                WHERE match_details.m_detail_id='" . $rec['m_detail_id'] . "'";
+                                                $sql3 = mysqli_query($conn, $SQL3);
+                                                $rec3 = mysqli_fetch_array($sql3);
+                                                $num_summary = mysqli_num_rows($sql3);
+                                                $team_win ="0";
+                                                //echo $rec['m_detail_id'];
+                                                if($num_summary > 0){
+                                                    $team_win =$rec3['team_win'];
+                                                }
                                                 ?>
                                                 <div class="form-check">
-                                                    <input <?php echo $rec['status'] == $rec1['team_A'] ? "checked" : "" ;?> class="form-check-input" type="radio" name="rdo_status[<?php echo $rec['m_detail_id']?>" id="rdo_status1" value="<?php echo $rec1['team_A']; ?>" onclick="savef(this.value,'<?php echo $rec['m_detail_id'];?>');">
+                                                    <input <?php echo $rec1['team_A'] == $team_win ? "checked" : "" ;?> class="form-check-input" type="radio" name="rdo_status[<?php echo $rec['m_detail_id']?>]" id="rdo_status1" value="<?php echo $rec1['team_A']; ?>" onclick="savef(this.value,'<?php echo $rec['m_detail_id'];?>');">
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         <?php echo get_team($rec1['team_A']); ?>
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input <?php echo $rec['status'] == $rec1['team_B'] ? "checked" : "" ;?> class="form-check-input" type="radio" name="rdo_status[<?php echo $rec['m_detail_id']?>" id="rdo_status2" value="<?php echo $rec1['team_B']; ?>" onclick="savef(this.value,'<?php echo $rec['m_detail_id'];?>');">
+                                                    <input <?php echo $rec1['team_B'] == $team_win ? "checked" : "" ;?> class="form-check-input" type="radio" name="rdo_status[<?php echo $rec['m_detail_id']?>]" id="rdo_status2" value="<?php echo $rec1['team_B']; ?>" onclick="savef(this.value,'<?php echo $rec['m_detail_id'];?>');">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         <?php echo get_team($rec1['team_B']); ?>
                                                     </label>

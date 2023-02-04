@@ -103,10 +103,6 @@ $array_menu_admin_maiching = array(
         2 => array(
             "url" => "game.php",
             "name" => "เกมส์"
-        ),
-        3 => array(
-            "url" => "game_detail.php",
-            "name" => "ข้อมูลผู้ลงแข่ง"
         )
     )
 );

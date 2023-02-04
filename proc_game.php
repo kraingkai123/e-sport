@@ -13,6 +13,7 @@ if ($_POST['proc'] == 'add') {
     }
 } else if($_GET['proc']=="del"){
      $sql = "DELETE FROM match_details WHERE m_detail_id='".$_GET['m_detail_id']."'";
+     mysqli_query($conn,"DELETE  FROM summary WHERE m_detail_id='".$_POST['m_detail_id']."'");
     $_POST['match_id'] =$_GET['match_id'];
     if (mysqli_query($conn, $sql)) {
     } else {
@@ -20,7 +21,10 @@ if ($_POST['proc'] == 'add') {
         exit;
     }
 }else if($_POST['proc']=='finshed'){
-    $sql = "UPDATE match_details SET status ='".$_POST['status']."' WHERE m_detail_id='" . $_POST['m_detail_id'] . "'";
+    mysqli_query($conn,"DELETE  FROM summary WHERE m_detail_id='".$_POST['m_detail_id']."'");
+    $sql2 = "UPDATE match_details SET status ='".$_POST['status']."' WHERE m_detail_id='" . $_POST['m_detail_id'] . "'";
+    mysqli_query($conn, $sql2);
+    $sql = "INSERT INTO summary (team_win,m_detail_id) VALUES('".$_POST['status']."','".$_POST['m_detail_id']."')";
     if (mysqli_query($conn, $sql)) {
     } else {
         echo mysqli_error($conn);
