@@ -1,4 +1,4 @@
-<script src="js/func.js"></script>
+
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -43,10 +43,7 @@ $array_menu_admin_setting = array(
             "url" => "team.php",
             "name" => "ข้อมูลทีม"
         ),
-        3 => array(
-            "url" => "player.php",
-            "name" => "ข้อมูลนักกีฬา"
-        ),
+       
         4 => array(
             "url" => "setup_lan.php",
             "name" => "ข้อมูลเลนภายในเกมส์"

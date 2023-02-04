@@ -31,5 +31,12 @@
         $rec = mysqli_fetch_array($query);
         return $rec['fullname'];
     }
+    function get_shcool_name($school_id){
+        global $conn;
+        $SQL = "SELECT school_name FROM schools WHERE school_id='".$school_id."'";
+        $query = mysqli_query($conn,$SQL);
+        $rec = mysqli_fetch_array($query);
+        return $rec['school_name'];
+    }
 
     
