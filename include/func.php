@@ -75,3 +75,10 @@ function get_lane($lane_id)
     $rec = mysqli_fetch_array($query);
     return $rec['name_lane'];
 }
+function check_count($sql){
+    global $conn;
+    
+    $query = mysqli_query($conn, $sql);
+    $rec = mysqli_fetch_array($query);
+    return $rec['c'];
+}

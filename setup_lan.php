@@ -35,7 +35,15 @@ include("./include/header.php")
                                 <td><?php echo $rec['name_lane'];?></td>
                                 <td>
                                 <button type="button" class="btn btn-warning" onclick="linkmenu('add_lane.php?proc=edit&lane_id=<?php echo $rec['lane_id'];?>')"><i class="fa fa-pencil-square" aria-hidden="true"></i>แก้ไข</button>
-                                <button type="button" class="btn btn-danger" onclick="deldata('proc_lane.php?proc=del&lane_id=<?php echo $rec['lane_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                
+                                <?php 
+                                $COUNT = check_count("SELECT COUNT(1) as c FROM match_player_details WHERE lane_id='".$rec['lane_id']."'");
+                                if($COUNT == 0){
+                                    ?>
+                                    <button type="button" class="btn btn-danger" onclick="deldata('proc_lane.php?proc=del&lane_id=<?php echo $rec['lane_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                    <?php
+                                }
+                                ?>
                                 </td>
                                </tr>
                                <?php }?>

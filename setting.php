@@ -34,7 +34,7 @@ include("./include/header.php")
                                                 
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <?php echo $value['icon']?>
                                             </div>
                                         </div>
                                     </div>

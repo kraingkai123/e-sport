@@ -39,8 +39,12 @@ include("./include/header.php")
                                 </td>
                                 <td>
                                 <button type="button" class="btn btn-warning" onclick="linkmenu('add_hero.php?proc=edit&hero_id=<?php echo $rec['hero_id'];?>')"><i class="fa fa-pencil-square" aria-hidden="true"></i>แก้ไข</button>
-                                
+                                <?php
+                                            $COUNT = check_count("SELECT COUNT(1) as c FROM match_player_details WHERE hero_id='" . $rec['hero_id'] . "'");
+                                            if ($COUNT == 0) {
+                                            ?>
                                 <button type="button" class="btn btn-danger" onclick="deldata('proc_hero.php?proc=del&hero_id=<?php echo $rec['hero_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>    
+                            <?php }?>
                             </td>
                                </tr>
                                <?php }?>
