@@ -27,7 +27,7 @@ if ($_POST['proc'] == 'add') {
     }
 }
 ?>
-<form id="form_back" name="form_back" method="post" action="match.php">
+<form id="form_back" name="form_back" method="post" action="tornament.php">
 		
 	</form>
 	<script language="JavaScript">

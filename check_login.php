@@ -1,6 +1,5 @@
 <?php
 include('./include/connect.php');
-session_start();
 $SQL = "SELECT * FROM users WHERE username='".$_POST['username']."' AND password ='".$_POST['password']."'";
 $query = mysqli_query($conn,$SQL);
 if(mysqli_num_rows($query) > 0){

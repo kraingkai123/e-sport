@@ -3,7 +3,7 @@ include("./include/header.php")
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black" ><h3>ทัวนาเม้น</h3></div>
+<div style="padding:10px;color:black" ><h3>TORNAMENT</h3></div>
 <div class="card ">
     <div class="card-body">
         <div id="wrapper">
@@ -39,8 +39,8 @@ include("./include/header.php")
                                 <td><?php echo db2date($rec['end_date']);?></td>
                                 <td>
                                 <button type="button" class="btn btn-warning" onclick="linkmenu('add_tornament.php?proc=edit&tour_id=<?php echo $rec['tour_id'];?>')"><i class="fa fa-pencil-square" aria-hidden="true"></i>แก้ไข</button>
-                                <button type="button" class="btn btn-danger" onclick="linkmenu('proc_tournament.php?proc=del&tour_id=<?php echo $rec['tour_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
-                                </td>
+                                <button type="button" class="btn btn-danger" onclick="deldata('proc_tournament.php?proc=del','tour_id=<?php echo $rec['tour_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                            </td>
                                </tr>
                                <?php }?>
                             </tbody>

@@ -40,7 +40,7 @@ include("./include/header.php")
                                 <td>
                                 <button type="button" class="btn btn-success" onclick="linkmenu('add_game.php?proc=add&match_id=<?php echo $rec['match_id'];?>')"><i class="fa fa-pencil-square" aria-hidden="true"></i>เพิ่ม</button>
                                 <button type="button" class="btn btn-warning" onclick="linkmenu('add_match.php?proc=edit&match_id=<?php echo $rec['match_id'];?>')"><i class="fa fa-pencil-square" aria-hidden="true"></i>แก้ไข</button>
-                                <button type="button" class="btn btn-danger" onclick="linkmenu('proc_match.php?proc=del&match_id=<?php echo $rec['match_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                <button type="button" class="btn btn-danger" onclick="deldata('proc_match.php?proc=del','match_id=<?php echo $rec['match_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
                                 </td>
                                </tr>
                                <?php }?>

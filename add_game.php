@@ -49,10 +49,18 @@ if ($_GET['proc'] == 'add') {
                             </div>
                             <div class="form-group  row">
                                 <div class="col-sm-1">
+                                    <label for="exampleInputEmail1">MATCH NAME</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="match_name" name="match_name" class="form-control" placeholder="MATCH NAME" tabindex="0">
+                                </div>
+                            </div>
+                            <div class="form-group  row">
+                                <div class="col-sm-1">
                                     <label for="exampleInputEmail1">เวลา</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="time" id="play_time" class="form-control" placeholder="Select time" tabindex="0">
+                                    <input type="text" id="play_time" class="form-control" placeholder="TIME PLAY" tabindex="0">
                                 </div>
                             </div>
                             <button type="button" class="btn btn-success" onclick="add_data('add')"><i class="fa fa-pencil-square" aria-hidden="true"></i>เพิ่ม</button>
@@ -60,9 +68,10 @@ if ($_GET['proc'] == 'add') {
                                 <thead style="color:black;align:center">
                                     <tr>
                                         <td width='10%' align="center">ลำดับ</td>
+                                        <td width='30%' align="center">ชื่อ Match</td>
                                         <td width='20%' align="center">เวลา</td>
-                                        <td width='60%' align="center">ผลการแข่งขัน</td>
-                                        <td width='10%'>จัดการ</td>
+                                        <td width='20%' align="center">ผลการแข่งขัน</td>
+                                        <td width='20%'>จัดการ</td>
 
                                     </tr>
                                 </thead>
@@ -76,6 +85,7 @@ if ($_GET['proc'] == 'add') {
                                     ?>
                                         <tr>
                                             <td align="center"><?php echo $i ?></td>
+                                            <td><?php echo $rec['match_name']; ?></td>
                                             <td><?php echo $rec['time']; ?></td>
                                             <td>
                                                 <?php
@@ -138,7 +148,8 @@ include("./include/footer.php");
             data: {
                 proc: proc,
                 play_time: $("#play_time").val(),
-                match_id: '<?php echo $_GET['match_id']; ?>'
+                match_id: '<?php echo $_GET['match_id']; ?>',
+                match_name :$('#match_name').val()
             },
             success: function(json) {
                 location.reload()

@@ -4,7 +4,7 @@ if($_GET['proc'] !=""){
     $_POST['proc']="";
 }
 if ($_POST['proc'] == 'add') {
-   $sql = "INSERT INTO match_details (time,match_id) VALUES ('" . $_POST['play_time'] . "','" . $_POST['match_id'] . "')";
+   $sql = "INSERT INTO match_details (time,match_id,match_name) VALUES ('" . $_POST['play_time'] . "','" . $_POST['match_id'] . "','".$_POST['match_name']."')";
 
     if (mysqli_query($conn, $sql)) {
     } else {

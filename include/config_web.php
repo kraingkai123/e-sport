@@ -3,6 +3,10 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+$array_team = array(
+    "A"=>"TEAM A",
+    "B"=>"TEAM B"
+);
 $array_menu_admin_main = array(
     "MENU" => array(
         0 => array(
