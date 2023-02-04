@@ -2,8 +2,7 @@ function linkmenu(url) {
     window.location.href = url;
 }
 
-function deldata(url,id) {
-    
+function deldata(url,id,sub_id='',p_id='') {
     Swal.fire({
         title: 'คุณต้องการลบข้อมูลใช่หรือไม่ ?',
         icon: 'question',
@@ -13,7 +12,7 @@ function deldata(url,id) {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            window.location.href = url+'&'+id;
+            window.location.href = url+'&'+id+'&'+sub_id+'&'+p_id;
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')
         }

@@ -39,4 +39,24 @@
         return $rec['school_name'];
     }
 
-    
+    function get_hero($hero_id){
+        global $conn;
+        $SQL = "SELECT hero_name FROM heros WHERE hero_id='".$hero_id."'";
+        $query = mysqli_query($conn,$SQL);
+        $rec = mysqli_fetch_array($query);
+        return $rec['hero_name'];
+    }
+    function get_nickname($player_id){
+        global $conn;
+        $SQL = "SELECT ingame_name FROM players WHERE player_id='".$player_id."'";
+        $query = mysqli_query($conn,$SQL);
+        $rec = mysqli_fetch_array($query);
+        return $rec['ingame_name'];
+    }
+    function get_lane($lane_id){
+        global $conn;
+        $SQL = "SELECT name_lane FROM lanes WHERE lane_id='".$lane_id."'";
+        $query = mysqli_query($conn,$SQL);
+        $rec = mysqli_fetch_array($query);
+        return $rec['name_lane'];
+    }
