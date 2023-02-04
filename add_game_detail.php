@@ -67,22 +67,46 @@ if ($_GET['proc'] == 'add') {
                                 <div class="col-sm-4">
                                     <?php
                                     foreach ($array_team as $key => $value) {
-                                        if($key =="A"){
+                                        if ($key == "A") {
                                             $value_team = $rec['team_A'];
-                                        }else{
+                                        } else {
                                             $value_team = $rec['team_B'];
                                         }
                                     ?>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="<?php echo $value_team;?>">
-                                            <label class="form-check-label" for="inlineRadio1"><?php echo $value?></label>
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="<?php echo $value_team; ?>">
+                                            <label class="form-check-label" for="inlineRadio1"><?php echo $value ?></label>
                                         </div>
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
-
+                            <div class="form-group  row">
+                                <div class="col-sm-1">
+                                    <label for="exampleInputEmail1">HERO</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="js-example-basic-single" name="team_B" style="width: 70%" onchange="get_img(this.value);">
+                                        <option>plase select</option>
+                                        <?php
+                                        $SQL = "SELECT * FROM heros ";
+                                        $query = mysqli_query($conn, $SQL);
+                                        if ($query) {
+                                            while ($rec_tour = mysqli_fetch_array($query)) {
+                                        ?>
+                                                <option value="<?php echo $rec_tour['hero_id']; ?>"><?php echo $rec_tour['hero_name'] ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                        <div id="show_img"></div>
+                                    </select>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <!-- /.container-fluid -->
@@ -141,6 +165,20 @@ include("./include/footer.php");
             },
             success: function(json) {
                 location.reload()
+            }
+        });
+    }
+    
+    function get_img(id){
+        $.ajax({
+            url: "./ajax/get_image_hero.php",
+            async: false,
+            method: 'post',
+            data: {
+                id: id,
+            },
+            success: function(json) {
+                $('#show_img').html(json);
             }
         });
     }
