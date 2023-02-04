@@ -1,6 +1,6 @@
 <?php
 include('./include/connect.php');
-$SQL = "SELECT * FROM users WHERE username='".$_POST['username']."' AND password ='".$_POST['password']."'";
+$SQL = "SELECT * FROM users WHERE username='".$_POST['username']."' AND password ='".base64_encode($_POST['password'])."'";
 $query = mysqli_query($conn,$SQL);
 if(mysqli_num_rows($query) > 0){
     $rec = mysqli_fetch_array($query);
