@@ -70,7 +70,7 @@ if(empty($_POST['match_id'])){
                     </center>
                     <!-- Main Content -->
                     <div id="content">
-                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_game.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                       
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
                             <table id="table_id" class="display" width="100%">
