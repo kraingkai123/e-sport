@@ -31,7 +31,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_team.php" enctype="multipart/form-data">
+                        <form method="post" action="proc_team.php" enctype="multipart/form-data" id="frm_team">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="team_id" id="team_id" value="<?php echo $_GET['team_id']; ?>">
                             <div class="form-group  row">
@@ -72,7 +72,7 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
                             </center>
                         </form>
                     </div>
@@ -107,4 +107,28 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+
+    function savedata() {
+        if ($('#team_name').val() == "") {
+            Swal.fire(
+                'กรุณากรอกชื่อ TEAM',
+                '',
+                'warning'
+            )
+        } else {
+            if ($('#proc').val() == 'add') {
+                if ($('#file_upload').val() == "") {
+                    Swal.fire(
+                        'กรุณาเพิ่มรูปภาพทีม',
+                        '',
+                        'warning'
+                    )
+                } else {
+                    $('#frm_team').submit()
+                }
+            }else{
+                $('#frm_team').submit()
+            }
+        }
+    }
 </script>

@@ -30,7 +30,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_hero.php" enctype="multipart/form-data" >
+                        <form method="post" action="proc_hero.php" enctype="multipart/form-data" id="frm_hero">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="hero_id" id="hero_id" value="<?php echo $_GET['hero_id']; ?>">
                             <div class="form-group  row">
@@ -38,7 +38,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">HERO NAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="hero_name" name="hero_name" aria-describedby="emailHelp" placeholder="ชื่อทัวนาเม้น" value="<?php echo $hero_name ?>">
+                                    <input type="text" class="form-control" id="hero_name" name="hero_name" aria-describedby="emailHelp" placeholder="HERO NAME" value="<?php echo $hero_name ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -50,7 +50,7 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
                             </center>
                         </form>
                     </div>
@@ -84,4 +84,27 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+    function savedata() {
+        if ($('#hero_name').val() == "") {
+            Swal.fire(
+                'กรุณากรอกชื่อ HERO',
+                '',
+                'warning'
+            )
+        } else {
+            if ($('#proc').val() == 'add') {
+                if ($('#file_upload').val() == "") {
+                    Swal.fire(
+                        'กรุณาเพิ่มรูปภาพ HERO',
+                        '',
+                        'warning'
+                    )
+                } else {
+                    $('#frm_hero').submit()
+                }
+            }else{
+                $('#frm_hero').submit()
+            }
+        }
+    }
 </script>

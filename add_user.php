@@ -5,7 +5,7 @@ if ($_GET['proc'] == 'add') {
     $fname = "";
     $lname = "";
     $telephone = "";
-    $position = "9";
+    $position = "0";
     $_GET['user_id'] = "";
     $username1 = "";
     $password1 = "";
@@ -43,7 +43,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_user.php">
+                        <form method="post" action="proc_user.php" id="frm_user">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="user_id" id="user_id" value="<?php echo $_GET['user_id']; ?>">
                             <input type="hidden" name="chk" id="chk" value="<?php echo $_GET['chk']; ?>">
@@ -52,7 +52,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">USERNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" <?php echo $readonly; ?> class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="USERNAME" value="<?php echo $username1 ?>" onchange="check_username(this.value)">
+                                    <input type="text" <?php echo $readonly; ?> class="form-control req" id="username" name="username" aria-describedby="emailHelp" placeholder="USERNAME" value="<?php echo $username1 ?>" onchange="check_username(this.value)">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -60,7 +60,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">PASSWORD</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="PASSWORD" value="<?php echo $password1 ?>">
+                                    <input type="password" class="form-control req" id="password" name="password" aria-describedby="emailHelp" placeholder="PASSWORD" value="<?php echo $password1 ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -68,13 +68,13 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">FIRSTNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="emailHelp" placeholder="FIRSTNAME" value="<?php echo $fname ?>">
+                                    <input type="text" class="form-control req" id="fname" name="fname" aria-describedby="emailHelp" placeholder="FIRSTNAME" value="<?php echo $fname ?>">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="exampleInputEmail1">LASTNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="emailHelp" placeholder="LASTNAME" value="<?php echo $lname ?>">
+                                    <input type="text" class="form-control req" id="lname" name="lname" aria-describedby="emailHelp" placeholder="LASTNAME" value="<?php echo $lname ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -82,7 +82,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">TELEPHONE</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="tell" name="tell" aria-describedby="emailHelp" placeholder="TELEPHONE" value="<?php echo $telephone ?>">
+                                    <input type="text" class="form-control req" id="tell" name="tell" aria-describedby="emailHelp" placeholder="TELEPHONE" value="<?php echo $telephone ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -95,7 +95,7 @@ if ($_GET['proc'] == 'add') {
                                         foreach ($array_permiss as $key => $value) {
                                     ?>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="position_id" id="position_id" value="<?php echo $key ?>" <?php echo $key == $position ? 'checked' : ''; ?>>
+                                                <input class="form-check-input req1" type="radio" name="position_id" id="position_id" value="<?php echo $key ?>" <?php echo $key == $position  ? 'checked' : ''; ?>>
                                                 <label class="form-check-label" for="inlineRadio1"><?php echo $value ?></label>
                                             </div>
                                     <?php
@@ -107,8 +107,9 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
                             </center>
+                            <br>
                         </form>
                     </div>
                     <!-- /.container-fluid -->
@@ -157,8 +158,52 @@ include("./include/footer.php");
                         '',
                         'error'
                     )
+                    $('#username').val("")
                 }
             }
         });
+    }
+
+    function savedata() {
+        var i = 0;
+        var i2 = 0;
+        $(".req").each(function(index) {
+            if ($(this).val() == "") {
+                var text = $(this).attr("placeholder")
+                Swal.fire(
+                    'กรุณากรอก' + text,
+                    '',
+                    'warning'
+                )
+                i++
+                return false
+            }
+        });
+        $(".req1:checked").each(function(index) {
+            i2++
+        });
+        if (i2 > 0) {
+
+        } else {
+            if (i == 0) {
+                if ($('#proc').val() == 'add') {
+                    if ($('#file_upload').val() == "") {
+                        Swal.fire(
+                            'กรุณาเพิ่มรูปภาพ USER',
+                            '',
+                            'warning'
+                        )
+                    } else {
+                        $('#frm_user').submit()
+                    }
+                } else {
+                    $('#frm_user').submit()
+                }
+            }
+        }
+
+
+
+        /*   */
     }
 </script>

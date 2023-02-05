@@ -67,3 +67,4 @@ function print_div() {
   popupWin.document.write(html); //โหลด print.css ให้ทำงานก่อนสั่งพิมพ์
   popupWin.document.close();
 }
+

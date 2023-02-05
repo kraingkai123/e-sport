@@ -18,7 +18,7 @@ if($_SESSION['permission']==0 ||$_SESSION['permission']==2){
             0 => array(
                 "url" => "matching.php",
                 "name" => "การแข่งขัน",
-                "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa fa-compress fa-2x" aria-hidden="true" style="color:green"></i>'
             ),
             1 => array(
                 "url" => "user.php",

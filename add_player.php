@@ -37,7 +37,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_player.php" enctype="multipart/form-data">
+                        <form method="post" action="proc_player.php" enctype="multipart/form-data" id="frm_player">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="player_id" id="player_id" value="<?php echo $_GET['player_id']; ?>">
                             <div class="form-group  row">
@@ -45,7 +45,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">NAME (IN GAME)</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="ingame_name" name="ingame_name" aria-describedby="emailHelp" placeholder="NAME (IN GAME)" value="<?php echo $ingame_name ?>">
+                                    <input type="text" class="form-control req" id="ingame_name" name="ingame_name" aria-describedby="emailHelp" placeholder="NAME (IN GAME)" value="<?php echo $ingame_name ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -53,7 +53,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">FIRSTNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="emailHelp" placeholder="FIRSTNAME" value="<?php echo $fname ?>">
+                                    <input type="text" class="form-control req" id="fname" name="fname" aria-describedby="emailHelp" placeholder="FIRSTNAME" value="<?php echo $fname ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -61,7 +61,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">LASTNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="emailHelp" placeholder="LASTNAME" value="<?php echo $lname ?>">
+                                    <input type="text" class="form-control req" id="lname" name="lname" aria-describedby="emailHelp" placeholder="LASTNAME" value="<?php echo $lname ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -69,7 +69,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">NICKNAME</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="nick_name" name="nick_name" aria-describedby="emailHelp" placeholder="NICKNAME" value="<?php echo $nick_name ?>">
+                                    <input type="text" class="form-control req" id="nick_name" name="nick_name" aria-describedby="emailHelp" placeholder="NICKNAME" value="<?php echo $nick_name ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -77,16 +77,16 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">TELEPHONE</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="tell" name="tell" aria-describedby="emailHelp" placeholder="TELEPHONE" value="<?php echo $nick_name ?>">
+                                    <input type="text" class="form-control req" id="tell" name="tell" aria-describedby="emailHelp" placeholder="TELEPHONE" value="<?php echo $nick_name ?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
                                 <div class="col-sm-1">
                                     <label for="exampleInputEmail1">TEAM</label>
                                 </div>
-                      
+
                                 <div class="col-sm-5">
-                                    <select class="js-example-basic-single" name="team_id" style="width: 50%">
+                                    <select class="js-example-basic-single req" name="team_id" style="width: 50%" placeholder='TEAM'>
                                         <?php
                                         $SQL = "SELECT * FROM teams ORDER BY team_name ASC ";
                                         $query = mysqli_query($conn, $SQL);
@@ -100,19 +100,20 @@ if ($_GET['proc'] == 'add') {
                                         ?>
                                     </select>
                                 </div>
-            
+
                             </div>
                             <div class="form-group  row">
                                 <div class="col-sm-1">
                                     <label for="exampleInputEmail1">IMAGE PLAYER</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="file" class="form-control-file" id="file_upload" name="file_upload" value="<?php echo $img_hero; ?>">
+                                    <input type="file" class="form-control-file" id="file_upload" name="file_upload" value="<?php echo $img_hero; ?>" placeholder='IMAGE PLAYER'>
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
                             </center>
+                            <br>
                         </form>
                     </div>
                     <!-- /.container-fluid -->
@@ -146,4 +147,37 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+
+    function savedata() {
+        var i = 0;
+        $(".req").each(function(index) {
+            if ($(this).val() == "") {
+                var text = $(this).attr("placeholder")
+                Swal.fire(
+                    'กรุณากรอก' + text,
+                    '',
+                    'warning'
+                )
+            i++
+                return false
+            }
+        });
+        if (i == 0) {
+            if ($('#proc').val() == 'add') {
+                if ($('#file_upload').val() == "") {
+                    Swal.fire(
+                        'กรุณาเพิ่มรูปภาพ PLAYER',
+                        '',
+                        'warning'
+                    )
+                } else {
+                    $('#frm_player').submit()
+                }
+            } else {
+                $('#frm_player').submit()
+            }
+        }
+
+        /*   */
+    }
 </script>

@@ -27,7 +27,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_lane.php">
+                        <form method="post" action="proc_lane.php" id="frm_lane">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="lane_id" id="lane_id" value="<?php echo $_GET['lane_id']; ?>">
                             <div class="form-group  row">
@@ -39,7 +39,7 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
                             </center>
                         </form>
                     </div>
@@ -73,4 +73,16 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+
+    function savedata() {
+        if ($('#name_lane').val() == "") {
+            Swal.fire(
+                'กรุณากรอกชื่อ LANE',
+                '',
+                'warning'
+            )
+        } else {
+            $('#frm_lane').submit()
+        }
+    }
 </script>

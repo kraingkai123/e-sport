@@ -33,7 +33,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_school.php" enctype="multipart/form-data" >
+                        <form method="post" action="proc_school.php" enctype="multipart/form-data" id="frm_school">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="school_id" id="school_id" value="<?php echo $_GET['school_id']; ?>">
                             <div class="form-group  row">
@@ -69,7 +69,7 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" onclick ="savedata()" class="btn btn-primary">บันทึก</button>
                             </center>
                         </form>
                     </div>
@@ -103,4 +103,39 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+    function savedata() {
+        if ($('#school_name').val() == "") {
+            Swal.fire(
+                'กรุณากรอกชื่อสถานศึกษา',
+                '',
+                'warning'
+            )
+        } else if ($('#address').val() == "") {
+            Swal.fire(
+                'กรุณากรอกที่อยู่',
+                '',
+                'warning'
+            )
+        }else if ($('#telephone').val() == "") {
+            Swal.fire(
+                'กรุณากรอกเบอร์ศัพท์',
+                '',
+                'warning'
+            )
+        }else {
+            if ($('#proc').val() == 'add') {
+                if ($('#file_upload').val() == "") {
+                    Swal.fire(
+                        'กรุณาเพิ่มรูปภาพสถานศึกษา',
+                        '',
+                        'warning'
+                    )
+                } else {
+                    $('#frm_school').submit()
+                }
+            }else{
+                $('#frm_school').submit()
+            }
+        }
+    }
 </script>

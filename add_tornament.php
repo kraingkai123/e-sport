@@ -31,7 +31,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_tournament.php">
+                        <form method="post" action="proc_tournament.php" id="frm_tour">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="tour_id" id="tour_id" value="<?php echo $_GET['tour_id']; ?>">
                             <div class="form-group  row">
@@ -39,7 +39,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">ชื่อทัวนาเม้น</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="tour_name" name="tour_name" aria-describedby="emailHelp" placeholder="ชื่อทัวนาเม้น" value="<?php echo $tour_name?>">
+                                    <input type="text" class="form-control req" id="tour_name" name="tour_name" aria-describedby="emailHelp" placeholder="ชื่อทัวนาเม้น" value="<?php echo $tour_name?>">
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -47,7 +47,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">วันที่เริ่มต้น</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="start_date" name="start_date" class="datepicker" width="276" value="<?php echo $start_date?>"/>
+                                    <input id="start_date" name="start_date" class="datepicker req" width="276" value="<?php echo $start_date?>"/>
                                 </div>
                             </div>
                             <div class="form-group  row">
@@ -55,12 +55,13 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">วันที่สิ้นสุด</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="end_date" name="end_date" class="datepicker" width="276" value="<?php echo $end_date?>"/>
+                                    <input id="end_date" name="end_date" class="datepicker req" width="276" value="<?php echo $end_date?>"/>
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" onclick ="savedata()"class="btn btn-primary">บันทึก</button>
                             </center>
+                            <br>
                         </form>
                     </div>
                     <!-- /.container-fluid -->
@@ -93,4 +94,20 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+    var i = 0;
+        $(".req").each(function(index) {
+            if ($(this).val() == "") {
+                var text = $(this).attr("placeholder")
+                Swal.fire(
+                    'กรุณากรอก' + text,
+                    '',
+                    'warning'
+                )
+            i++
+                return false
+            }
+        });
+        if (i == 0) {
+            $('#frm_tour').submit()
+        }
 </script>
