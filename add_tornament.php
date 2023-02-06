@@ -94,7 +94,8 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
-    var i = 0;
+    function savedata(){
+        var i = 0;
         $(".req").each(function(index) {
             if ($(this).val() == "") {
                 var text = $(this).attr("placeholder")
@@ -110,4 +111,5 @@ include("./include/footer.php");
         if (i == 0) {
             $('#frm_tour').submit()
         }
+    }
 </script>
