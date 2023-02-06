@@ -179,28 +179,22 @@ include("./include/footer.php");
                 return false
             }
         });
-        $(".req1:checked").each(function(index) {
-            i2++
-        });
-        if (i2 > 0) {
-
-        } else {
-            if (i == 0) {
-                if ($('#proc').val() == 'add') {
-                    if ($('#file_upload').val() == "") {
-                        Swal.fire(
-                            'กรุณาเพิ่มรูปภาพ USER',
-                            '',
-                            'warning'
-                        )
-                    } else {
-                        $('#frm_user').submit()
-                    }
+        if (i == 0) {
+            if ($('#proc').val() == 'add') {
+                if ($('#file_upload').val() == "") {
+                    Swal.fire(
+                        'กรุณาเพิ่มรูปภาพ USER',
+                        '',
+                        'warning'
+                    )
                 } else {
                     $('#frm_user').submit()
                 }
+            } else {
+                $('#frm_user').submit()
             }
         }
+
 
 
 
