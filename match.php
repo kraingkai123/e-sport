@@ -16,15 +16,18 @@ include("./include/header.php")
 
                 <!-- Main Content -->
                 <div id="content">
-                    <button type="button" class="btn btn-primary" onclick="linkmenu('add_match.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                    <div class="container-fluid">
+                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_match.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                    </div>
+                    <br>
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <table id="table_id" class="display" width="100%">
                             <thead style="color:black;align:center">
                                 <tr>
-                                    <td width='45%' align="center">ชื่อ Tornament</td>
-                                    <td width='20%' align="center">ทีมแข่ง</td>
-                                    <td width='20%' align="center">วันที่</td>
+                                    <td width='25%' align="center">ชื่อ Tornament</td>
+                                    <td width='25%' align="center">ทีมแข่ง</td>
+                                    <td width='15%' align="center">วันที่</td>
                                     <td width='15%' align="center">จัดการ</td>
                                 </tr>
                             </thead>

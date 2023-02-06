@@ -16,7 +16,10 @@ include("./include/header.php")
 
                 <!-- Main Content -->
                 <div id="content">
-                    <button type="button" class="btn btn-primary" onclick="linkmenu('add_tornament.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                    
+                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_tornament.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                        
+                    
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <table id="table_id" class="display" width="100%">

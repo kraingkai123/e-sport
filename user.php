@@ -21,10 +21,10 @@ include("./include/header.php")
                             <thead style="color:black;align:center" >
                                 <tr >
                                     <td width='20%' align="center">USERNAME</td>
-                                    <td width='40%' align="center">NAME</td>
+                                    <td width='20%' align="center">NAME</td>
                                     <td width='10%' align="center">TELEPHONE</td>
                                     <td width='20%' align="center">PERMISSION</td>
-                                    <td width='10%' align="center">จัดการ</td>
+                                    <td width='15%' align="center">จัดการ</td>
                                 </tr>
                             </thead>
                             <tbody>

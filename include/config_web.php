@@ -18,27 +18,27 @@ if($_SESSION['permission']==0 ||$_SESSION['permission']==2){
             0 => array(
                 "url" => "matching.php",
                 "name" => "การแข่งขัน",
-                "icon" =>'<i class="fa fa-compress fa-2x" aria-hidden="true" style="color:green"></i>'
+                "icon" =>'<i class="fa fa-solid fa-chess fa-2x" aria-hidden="true" style="color:red"></i>'
             ),
             1 => array(
                 "url" => "user.php",
                 "name" => "ผู้ใช้งาน",
-                "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa fa-solid fa-user-shield fa-2x" aria-hidden="true" style="color:green"></i>'
             ),
             2 => array(
                 "url" => "player.php",
                 "name" => "ผู้เล่น",
-                "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa fa-solid fa-users fa-2x" aria-hidden="true" style="color:#4B0082"></i>'
             ),
             3 => array(
                 "url" => "setting.php",
                 "name" => "ตั้งค่า",
-                "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa-sharp fa-solid fa-gear fa-2x" aria-hidden="true"></i>'
             ),
             4 => array(
                 "url" => "report.php",
                 "name" => "รายงานสรุป",
-                "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa fa-light fa-clipboard fa-2x" aria-hidden="true" style="color:#8B4513"></i>'
             )
         )
     );

@@ -60,7 +60,7 @@ if (empty($_POST['match_id'])) {
                         <!-- Begin Page Content -->
                         <div class="container-fluid" id="div_report">
                             <center>
-                                <h3>หัว Report</h3>
+                                <h3>รายงานสถิติ H2H นักกีฬา</h3>
                             </center>
                             <table id="table_id" class="display" width="100%" border="1">
                                 <thead style="color:black;align:center">
@@ -68,7 +68,7 @@ if (empty($_POST['match_id'])) {
                                         <td width='40%' align="center">NAME (IN GAME)</td>
                                         <td width='30%' align="center">TEAM NAME</td>
                                         <td width='10%' align="center">KILL/DEATH/ASSIST</td>
-                                        <td width='10%' align="center">H2H</td>
+                                        <td width='10%' align="center">KDA</td>
                                     </tr>
                                     <!-- (kill+assist) / death -->
                                 </thead>
