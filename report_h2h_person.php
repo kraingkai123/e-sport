@@ -49,10 +49,13 @@ if (empty($_POST['match_id'])) {
                             </select>
                         </div>
                     </div>
-                    <center>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
-                        <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
-                    </center>
+                    <div class="container-fluid">
+                        <center>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                            <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
+                            <button type="button" class="btn btn-danger float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                        </center>
+                    </div>
                     <br>
                     <!-- Main Content -->
                     <div id="content">
@@ -95,11 +98,11 @@ if (empty($_POST['match_id'])) {
                                             <td><?php echo get_nickname($rec['player_id']); ?></td>
                                             <td><?php echo get_team($rec['team_id']); ?></td>
                                             <td align="center"><?php
-                                                echo $rec['sum_kill']."/".$rec['sum_death'].'/'.$rec['sum_assist'];
-                                                ?></td>
+                                                                echo $rec['sum_kill'] . "/" . $rec['sum_death'] . '/' . $rec['sum_assist'];
+                                                                ?></td>
                                             <td align="center">
                                                 <?php
-                                                echo number_format(($rec['sum_kill']+$rec['sum_assist']) /$rec['sum_death'],2);
+                                                echo number_format(($rec['sum_kill'] + $rec['sum_assist']) / $rec['sum_death'], 2);
 
                                                 ?>
                                             </td>

@@ -16,7 +16,16 @@ include("./include/header.php")
 
                 <!-- Main Content -->
                 <div id="content">
-                    <button type="button" class="btn btn-primary" onclick="linkmenu('add_school.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                    <br>
+                    <div class="container-fluid">
+
+                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_school.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+
+                        <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+
+                    </div>
+                    <br>
+
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <table id="table_id" class="display" width="100%">

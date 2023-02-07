@@ -49,10 +49,13 @@ if (empty($_POST['match_id'])) {
                             </select>
                         </div>
                     </div>
-                    <center>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
-                        <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
-                    </center>
+                    <div class="container-fluid">
+                        <center>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                            <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
+                            <button type="button" class="btn btn-danger float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                        </center>
+                    </div>
                     <br>
                     <!-- Main Content -->
                     <div id="content">
@@ -60,7 +63,7 @@ if (empty($_POST['match_id'])) {
                         <!-- Begin Page Content -->
                         <div class="container-fluid" id="div_report">
                             <center>
-                                <h3>รายงานสถิติ H2H ทีม</h3>
+                                <h3>รายงานสถิติ H2H แต่ละทีม</h3>
                             </center>
                             <table id="table_id" class="display" width="100%" border="1">
                                 <thead style="color:black;align:center">
@@ -90,7 +93,7 @@ if (empty($_POST['match_id'])) {
                                     ?>
                                         <tr rowspan="<?php echo $num ?>">
                                             <td><?php echo get_team($rec['team_id']); ?></td>
-                                            <td><?php echo get_shcool_name('',$rec['team_id']); ?></td>
+                                            <td><?php echo get_shcool_name('', $rec['team_id']); ?></td>
                                             <td align="center"><?php
                                                                 echo $rec['sum_kill'] . "/" . $rec['sum_death'] . '/' . $rec['sum_assist'];
                                                                 ?></td>

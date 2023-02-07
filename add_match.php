@@ -6,7 +6,7 @@ if ($_GET['proc'] == 'add') {
     $teamB = "";
     $date = "";
     $_GET['match_id'] = "";
-    $tour_id="";
+    $tour_id = "";
 } else {
     $SQL = "SELECT * FROM matchs WHERE match_id='" . $_GET['match_id'] . "'";
     $sql = mysqli_query($conn, $SQL);
@@ -14,7 +14,7 @@ if ($_GET['proc'] == 'add') {
     $teamA = $rec['team_A'];
     $teamB = $rec['team_B'];
     $date = db2date($rec['date']);
-    $tour_id=$rec['tour_id'];
+    $tour_id = $rec['tour_id'];
 }
 ?>
 <!-- Page Wrapper -->
@@ -61,7 +61,7 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">ทีม A</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="js-example-basic-single" name="team_A" style="width: 50%">
+                                    <select class="team_A" name="team_A" style="width: 50%">
                                         <?php
                                         $SQL = "SELECT * FROM teams ";
                                         $query = mysqli_query($conn, $SQL);
@@ -81,14 +81,14 @@ if ($_GET['proc'] == 'add') {
                                     <label for="exampleInputEmail1">ทีม B</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="js-example-basic-single" name="team_B" style="width: 50%">
+                                    <select class="team_B" name="team_B" style="width: 50%">
                                         <?php
                                         $SQL = "SELECT * FROM teams ";
                                         $query = mysqli_query($conn, $SQL);
                                         if ($query) {
                                             while ($rec_tour = mysqli_fetch_array($query)) {
                                         ?>
-                                                <option value="<?php echo $rec_tour['team_id']; ?>" <?php echo $rec_tour['team_id'] == $teamB ? "selected" : ""; ?>><?php echo $rec_tour['team_name'] ?></option>
+                                                <option value="<?php echo $rec_tour['team_id']; ?>" <?php echo $rec_tour['team_id'] == $teamB ? "selected" : ""; ?>><?php echo $rec_tour['team_name']?></option>
                                         <?php
                                             }
                                         }
@@ -136,4 +136,5 @@ include("./include/footer.php");
             format: 'dd/mm/yyyy'
         });
     });
+
 </script>

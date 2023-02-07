@@ -49,21 +49,28 @@ if (empty($_POST['match_id'])) {
                             </select>
                         </div>
                     </div>
-                    <center>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
-                        <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
-                    </center>
+                    <div class="container-fluid">
+                        <center>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                            <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
+                            <button type="button" class="btn btn-danger float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                        </center>
+
+                    </div>
+
                     <br>
                     <!-- Main Content -->
                     <div id="content">
 
                         <!-- Begin Page Content -->
                         <div class="container-fluid" id="div_report">
-                            <center><h3>หัว Report</h3></center>
+                            <center>
+                                <h3>รายงานสถิติผลการแข่งขัน/จำนวนการแข่งขัน</h3>
+                            </center>
                             <table id="table_id" class="display" width="100%" border="1">
                                 <thead style="color:black;align:center">
                                     <tr>
-                                        <td width='45%' align="center">ชื่อ Tornament</td>
+                                        <td width='25%' align="center">ชื่อ Tornament</td>
                                         <td width='20%' align="center">ชื่อ TEAM</td>
                                         <td width='20%' align="center">จำนวนที่แข่ง</td>
                                         <td width='20%' align="center">WIN/LOSS</td>

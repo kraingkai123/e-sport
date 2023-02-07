@@ -4,7 +4,7 @@ include("./include/header.php")
 ?>
 <!-- Page Wrapper -->
 <div style="padding:10px;color:black">
-    <h3>เมนู</h3>
+    <h3>MENU</h3>
 </div>
 <div class="card ">
 
@@ -28,7 +28,7 @@ include("./include/header.php")
                             foreach ($array_menu_admin_main['MENU'] as $key => $value) {
                             ?>
 
-                                <div class="col-xl-3 col-md-6 mb-4" onclick="linkmenu('<?php echo $value['url']; ?>')">
+                                <div class="col-xl-3 col-md-6 mb-4 mt-4" onclick="linkmenu('<?php echo $value['url']; ?>')">
                                     <div class="card border-left-primary shadow h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
@@ -38,7 +38,7 @@ include("./include/header.php")
 
                                                 </div>
                                                 <div class="col-auto">
-                                                   <?php echo $value['icon']?>
+                                                    <?php echo $value['icon'] ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +65,6 @@ include("./include/header.php")
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
-
 <?php
 include("./include/footer.php");
 ?>

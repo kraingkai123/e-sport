@@ -16,14 +16,19 @@ include("./include/header.php")
 
                 <!-- Main Content -->
                 <div id="content">
-                    <button type="button" class="btn btn-primary" onclick="linkmenu('add_team.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                    <div class="container-fluid" style="margin-top: 15px; margin-bottom: 15px;">
+                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_team.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+
+                        <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                    </div>
+
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <table id="table_id" class="display" width="100%">
                             <thead style="color:black;align:center">
                                 <tr>
-                                    <td width='40%' align="center">TEAM NAME</td>
-                                    <td width='40%' align="center">SCHOOL</td>
+                                    <td width='20%' align="center">TEAM NAME</td>
+                                    <td width='20%' align="center">SCHOOL</td>
                                     <td width='20%' align="center">IMAGE</td>
                                     <td width='10%' align="center">จัดการ</td>
                                 </tr>

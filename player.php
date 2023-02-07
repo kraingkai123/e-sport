@@ -16,7 +16,14 @@ include("./include/header.php")
 
                 <!-- Main Content -->
                 <div id="content">
-                    <button type="button" class="btn btn-primary" onclick="linkmenu('add_player.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+
+                    <br>
+                    <div class="container-fluid">
+                        <button type="button" class="btn btn-primary" onclick="linkmenu('add_player.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
+                        <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                    </div>
+                    <br>
+
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
                         <table id="table_id" class="display" width="100%">
@@ -44,7 +51,7 @@ include("./include/header.php")
                                         <td><?php echo $rec['nick_name']; ?></td>
                                         <td><?php echo $rec['tell']; ?></td>
                                         <td>
-                                            <img src="./img/player/<?php echo $rec['img_player']; ?>" class="rounded mx-auto d-block" alt="..." width="200px" height="200px">
+                                            <img src="./img/player/<?php echo $rec['img_player']; ?>" class="rounded mx-auto d-block" alt="..." width="150px" height="200px">
                                         </td>
                                         <td><?php echo get_team($rec['team_id']) ?></td>
 
@@ -55,7 +62,7 @@ include("./include/header.php")
                                             $COUNT = check_count("SELECT COUNT(1) as c FROM match_player_details WHERE player_id='" . $rec['player_id'] . "'");
                                             if ($COUNT == 0) {
                                             ?>
-                                                <button type="button" class="btn btn-danger" onclick="deldata('proc_player.php?proc=del','player_id=<?php echo $rec['player_id']; ?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                                <button style="margin: top 1px;" type="button" class="btn btn-danger" onclick="deldata('proc_player.php?proc=del','player_id=<?php echo $rec['player_id']; ?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
                                             <?php } ?>
                                         </td>
                                     </tr>

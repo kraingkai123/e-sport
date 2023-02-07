@@ -2,6 +2,9 @@
 include("./include/header.php")
 
 ?>
+<div style="padding:10px;color:black">
+    <h3>TOURNAMENT</h3>
+</div>
 <!-- Page Wrapper -->
 <div class="card ">
     <div class="card-body">

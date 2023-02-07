@@ -18,22 +18,22 @@ if($_SESSION['permission']==0 ||$_SESSION['permission']==2){
             0 => array(
                 "url" => "matching.php",
                 "name" => "การแข่งขัน",
-                "icon" =>'<i class="fa fa-solid fa-chess fa-2x" aria-hidden="true" style="color:red"></i>'
+                "icon" =>'<i class="fa fa-solid fa-trophy fa-2x" aria-hidden="true" style="color:gold"></i>'
             ),
             1 => array(
                 "url" => "user.php",
-                "name" => "ผู้ใช้งาน",
+                "name" => "ข้อมูลยูสเซอร์/แอดมิน",
                 "icon" =>'<i class="fa fa-solid fa-user-shield fa-2x" aria-hidden="true" style="color:green"></i>'
             ),
             2 => array(
                 "url" => "player.php",
-                "name" => "ผู้เล่น",
+                "name" => "นักกีฬา",
                 "icon" =>'<i class="fa fa-solid fa-users fa-2x" aria-hidden="true" style="color:#4B0082"></i>'
             ),
             3 => array(
                 "url" => "setting.php",
                 "name" => "ตั้งค่า",
-                "icon" =>'<i class="fa-sharp fa-solid fa-gear fa-2x" aria-hidden="true"></i>'
+                "icon" =>'<i class="fa fa-light fa-bars fa-2x" aria-hidden="true" style="color:#0000FF"></i>'
             ),
             4 => array(
                 "url" => "report.php",
@@ -87,17 +87,17 @@ $array_menu_admin_report = array(
         0 => array(
             "url" => "report_match.php",
             "name" => "รายงานสถิติแมตช์",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa-solid fa-user-shield fa-2x" aria-hidden="true" style="color:green"></i>'
         ),
         1 => array(
             "url" => "report_h2h_person.php",
             "name" => " รายงานสถิติ H2H ผู้เล่น",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true"></i>'
         ),
         2 => array(
             "url" => "report_h2h_team.php",
             "name" => " รายงานสถิติ H2H ทีม",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true"></i>'
         )
     )
 );
@@ -108,17 +108,17 @@ $array_menu_admin_maiching = array(
         0 => array(
             "url" => "tornament.php",
             "name" => "ทัวนาเม้น",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-chess-rook fa-2x" aria-hidden="true" style="color:FF1493"></i>'
         ),
         1 => array(
             "url" => "match.php",
             "name" => "แมต",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-chess fa-2x" aria-hidden="true" style="color:green"></i>'
         ),
         2 => array(
             "url" => "game.php",
             "name" => "เกมส์",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-gamepad fa-2x" aria-hidden="true" style="color:red"></i>'
         )
     )
 );

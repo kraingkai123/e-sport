@@ -65,9 +65,14 @@ if (empty($_POST['match_id'])) {
                             </select>
                         </div>
                     </div>
-                    <center>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
-                    </center>
+                    <div class="container-fluid">
+                        <div align="center">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+
+                            <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                        </div>
+                    </div>
+                    <br>
                     <!-- Main Content -->
                     <div id="content">
 

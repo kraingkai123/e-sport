@@ -112,6 +112,7 @@ if ($_GET['proc'] == 'add') {
                             </div>
                             <center>
                                 <button type="button" class="btn btn-primary" onclick="savedata()">บันทึก</button>
+                                <button type="button" class="btn btn-danger" onclick="history.back()">ย้อนกลับ</button>
                             </center>
                             <br>
                         </form>
