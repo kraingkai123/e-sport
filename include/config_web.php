@@ -28,7 +28,7 @@ if($_SESSION['permission']==0 ||$_SESSION['permission']==2){
             2 => array(
                 "url" => "player.php",
                 "name" => "นักกีฬา",
-                "icon" =>'<i class="fa fa-solid fa-users fa-2x" aria-hidden="true" style="color:#4B0082"></i>'
+                "icon" =>'<i class="fa fa-solid fa-user fa-2x" aria-hidden="true" style="color:#4B0082"></i>'
             ),
             3 => array(
                 "url" => "setting.php",
@@ -61,23 +61,23 @@ $array_menu_admin_setting = array(
         0 => array(
             "url" => "hero.php",
             "name" => "ข้อมูลฮีโร่ (HERO)",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-ghost fa-2x" aria-hidden="true" style="color:#000000"></i>'
         ),
         1 => array(
             "url" => "school.php",
             "name" => "ข้อมูลสถานศึกษา",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-school fa-2x" aria-hidden="true" style="color:#66FF99"></i>'
         ),
         2 => array(
             "url" => "team.php",
             "name" => "ข้อมูลทีม",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-users fa-2x" aria-hidden="true" style="color:red"></i>'
         ),
        
         4 => array(
             "url" => "setup_lan.php",
             "name" => "ข้อมูลเลนภายในเกมส์",
-            "icon" =>'<i class="fa fa-compress fa-2x text-gray-300" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-map fa-2x" aria-hidden="true" style="color:#483D8B"></i>'
         )
     )
 );
@@ -86,18 +86,18 @@ $array_menu_admin_report = array(
     "MENU" => array(
         0 => array(
             "url" => "report_match.php",
-            "name" => "รายงานสถิติแมตช์",
-            "icon" =>'<i class="fa-solid fa-user-shield fa-2x" aria-hidden="true" style="color:green"></i>'
+            "name" => "รายงานสถิติทัวร์นาเมนต์",
+            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true" style="color:#FF0000"></i>'
         ),
         1 => array(
             "url" => "report_h2h_person.php",
             "name" => " รายงานสถิติ H2H ผู้เล่น",
-            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true" style="color:#FFC0CB"></i>'
         ),
         2 => array(
             "url" => "report_h2h_team.php",
             "name" => " รายงานสถิติ H2H ทีม",
-            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true"></i>'
+            "icon" =>'<i class="fa fa-solid fa-print fa-2x" aria-hidden="true" style="color:#2E8B57"></i>'
         )
     )
 );
