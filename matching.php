@@ -1,10 +1,7 @@
 <?php
-session_start();
-if(!$_SESSION['username']){
-    header("location: index.php");
-    exit;
-}
-include("./include/header.php")
+
+include("./include/header.php");
+include("./session_chk.php");
 
 ?>
 <div style="padding:10px;color:black">

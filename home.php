@@ -1,10 +1,6 @@
 <?php
-session_start();
-if(!$_SESSION['username']){
-    header("location: index.php");
-    exit;
-}
-include("./include/header.php")
+include("./include/header.php");
+include("./session_chk.php"); //ดักการเข้าผ่านไฟล์โดยตรง
 
 ?>
 <!-- Page Wrapper -->

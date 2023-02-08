@@ -1,10 +1,7 @@
 <?php
-session_start();
-if(!$_SESSION['username']){
-    header("location: index.php");
-    exit;
-}
+
 include("./include/header.php");
+include("./session_chk.php");
 
 if ($_GET['proc'] == 'add') {
     $match_id = "";
@@ -106,7 +103,7 @@ if ($_GET['proc'] == 'add') {
                                     <select class="js-example-basic-single" name="hero" style="width: 70%" onchange="get_img(this.value);">
                                         <option>plase select</option>
                                         <?php
-                                        $SQL = "SELECT * FROM heros WHERE  hero_id NOT IN(SELECT hero_id FROM match_player_details WHERE m_detail_id ='".$_GET['m_detail_id']."') ";
+                                        $SQL = "SELECT * FROM heros WHERE  hero_id NOT IN(SELECT hero_id FROM match_player_details WHERE m_detail_id ='" . $_GET['m_detail_id'] . "') ";
                                         $query = mysqli_query($conn, $SQL);
                                         if ($query) {
                                             while ($rec_tour = mysqli_fetch_array($query)) {
@@ -198,7 +195,10 @@ if ($_GET['proc'] == 'add') {
                                 </div>
 
                             </div>
-                            <center><button type="submit" class="btn btn-success" onclick="add_data('add')"><i class="fa fa-pencil-square" aria-hidden="true"></i>บันทึก</button></center>
+                            <center>
+                                <button type="submit" class="btn btn-primary" onclick="add_data('add')"><i class="fa fa-pencil-square" aria-hidden="true"></i>บันทึก</button>
+                                <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
+                            </center>
                         </form>
                         <hr>
                         <h3>TEAM : <?php echo get_team($rec['team_A']) ?> </h3>
@@ -243,7 +243,7 @@ if ($_GET['proc'] == 'add') {
                                         <td><?php echo $rec2['def']; ?></td>
                                         <td><?php echo $rec2['team_fight']; ?></td>
                                         <td>
-                                        <button type="button" class="btn btn-danger" onclick="deldata('proc_detail_match.php?proc=del','m_detail_id=<?php echo $_GET['m_detail_id']; ?>','match_id=<?php echo $_GET['match_id'] ?>','p_detail_id=<?php echo $rec2['p_detail_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                            <button type="button" class="btn btn-danger" onclick="deldata('proc_detail_match.php?proc=del','m_detail_id=<?php echo $_GET['m_detail_id']; ?>','match_id=<?php echo $_GET['match_id'] ?>','p_detail_id=<?php echo $rec2['p_detail_id']; ?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
                                         </td>
                                     </tr>
                                 <?php $i++;
@@ -294,7 +294,7 @@ if ($_GET['proc'] == 'add') {
                                         <td><?php echo $rec2['team_fight']; ?></td>
                                         <td>
 
-                                            <button type="button" class="btn btn-danger" onclick="deldata('proc_detail_match.php?proc=del','m_detail_id=<?php echo $_GET['m_detail_id']; ?>','match_id=<?php echo $_GET['match_id'] ?>','p_detail_id=<?php echo $rec2['p_detail_id'];?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+                                            <button type="button" class="btn btn-danger" onclick="deldata('proc_detail_match.php?proc=del','m_detail_id=<?php echo $_GET['m_detail_id']; ?>','match_id=<?php echo $_GET['match_id'] ?>','p_detail_id=<?php echo $rec2['p_detail_id']; ?>')"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
                                         </td>
                                     </tr>
                                 <?php $i++;
@@ -371,7 +371,7 @@ include("./include/footer.php");
             method: 'post',
             data: {
                 id: id,
-                m_detail_id:'<?php echo $_GET['m_detail_id'];?>'
+                m_detail_id: '<?php echo $_GET['m_detail_id']; ?>'
             },
             success: function(json) {
                 $('#show_player').html(json);
