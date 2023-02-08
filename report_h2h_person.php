@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!$_SESSION['username']){
+    header("location: index.php");
+    exit;
+}
+
 include("./include/header.php");
 if (empty($_POST['player_id'])) {
     $_POST['player_id'] = "";

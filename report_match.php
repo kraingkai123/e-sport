@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!$_SESSION['username']){
+    header("location: index.php");
+    exit;
+}
 include("./include/header.php");
 if (empty($_POST['tour_id'])) {
     $_POST['tour_id'] = "";
@@ -72,7 +77,7 @@ if (empty($_POST['match_id'])) {
                                 <thead style="color:black;align:center">
                                     <tr>
                                         <td width='25%' align="center">ชื่อ Tornament</td>
-                                        <td width='25%' align="center">MATCH</td>
+                                        
                                         <td width='20%' align="center">ชื่อ TEAM</td>
                                         <td width='20%' align="center">จำนวนที่แข่ง</td>
                                         <td width='20%' align="center">WIN/LOSS</td>
@@ -100,7 +105,7 @@ if (empty($_POST['match_id'])) {
                                         <tr rowspan="<?php echo $num ?>">
 
                                             <td><?php echo get_tourname($rec['tour_id']); ?></td>
-                                            <td><?php echo get_match($rec['match_id']); ?></td>
+                                            
                                             <td><?php echo get_team($rec['team_id']); ?></td>
                                             <td><?php
                                                 $sql_count = "SELECT COUNT(team_id) as c FROM frm_team WHERE match_id='" . $rec['match_id'] . "' GROUP BY team_id,match_id";

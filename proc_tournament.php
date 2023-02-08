@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!$_SESSION['username']){
+    header("location: index.php");
+    exit;
+}
+
 include('./include/connect.php');
 if($_GET['proc'] !=""){
     $_POST['proc']="";

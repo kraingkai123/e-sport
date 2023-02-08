@@ -20,14 +20,7 @@ function get_tourname($tour_id)
     $rec = mysqli_fetch_array($query);
     return $rec['tour_name'];
 }
-function get_match($match_id)
-{
-    global $conn;
-    $SQL = "SELECT match_name FROM match_details WHERE match_id='" . $match_id . "'";
-    $query = mysqli_query($conn, $SQL);
-    $rec = mysqli_fetch_array($query);
-    return $rec['match_name'];
-}
+
 function get_team($team_id)
 {
     global $conn;

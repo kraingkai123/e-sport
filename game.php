@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!$_SESSION['username']){
+    header("location: index.php");
+    exit;
+}
 include("./include/header.php");
 if (empty($_POST['tour_id'])) {
     $_POST['tour_id'] = "";
