@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
 
@@ -10,18 +10,59 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>เข้าสู่ระบบ | RoV Match Center</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Thai:300,400,500,600,700" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/app-ui.css" rel="stylesheet">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="login-page">
+
+    <main class="login-layout">
+        <div class="login-shell">
+            <section class="login-brand" aria-label="RoV Match Center">
+                <div class="login-brand-copy">
+                    <span class="login-kicker">COMPETITION RECORDS</span>
+                    <h1>RoV<br>Match Center</h1>
+                    <p>ระบบสถิติการแข่งขัน</p>
+                </div>
+                <img src="img/login.png" alt="RoV Arena of Valor">
+                <span class="login-season">MATCH OPERATIONS</span>
+            </section>
+
+            <section class="login-panel" aria-labelledby="login-title">
+                <div class="login-panel-inner">
+                    <span class="login-panel-mark"><i class="fas fa-trophy" aria-hidden="true"></i> MATCH DESK</span>
+                    <h2 id="login-title">เข้าสู่ระบบ</h2>
+                    <p class="login-intro">ยินดีต้อนรับกลับ</p>
+
+                    <form id="login_form" class="login-form" onsubmit="login(event)">
+                        <div class="form-group">
+                            <label for="Username">ชื่อผู้ใช้</label>
+                            <input type="text" class="form-control" id="Username" name="username" placeholder="กรอกชื่อผู้ใช้" autocomplete="username" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_password">รหัสผ่าน</label>
+                            <input type="password" class="form-control" id="user_password" name="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password" required>
+                        </div>
+                        <p id="login_error" class="login-error" role="alert" aria-live="polite"></p>
+                        <button type="submit" id="login_submit" class="btn btn-primary btn-block login-submit">
+                            <span>เข้าสู่ระบบ</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <p class="login-caption">ระบบรายงานสถิติการแข่งขัน RoV</p>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
@@ -37,10 +78,10 @@
 
                                 <form class="user">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="text" class="form-control form-control-user" id="Username" aria-describedby="emailHelp" placeholder="Enter Username">
+                                        <input type="text" class="form-control form-control-user" id="Username_legacy" aria-describedby="emailHelp" placeholder="Enter Username">
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" class="form-control form-control-user" id="user_password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" id="user_password_legacy" placeholder="Password">
                                     </div>
 
                                     <a href="#" class="btn btn-outline-light btn-lg px-5" onclick="login()">
@@ -132,25 +173,43 @@
 
 </html>
 <script>
-    function login() {
+    function login(event) {
+        if (event) {
+            event.preventDefault();
+        }
+
+        const username = $('#Username').val().trim();
+        const password = $('#user_password').val();
+        const submitButton = $('#login_submit');
+        const errorMessage = $('#login_error');
+
+        errorMessage.text('');
+        if (!username || !password) {
+            errorMessage.text('กรุณากรอกชื่อผู้ใช้และรหัสผ่าน');
+            return;
+        }
+
+        submitButton.prop('disabled', true).html('<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> กำลังเข้าสู่ระบบ');
+
         $.ajax({
             url: "check_login.php",
-            async: false,
             method: 'post',
             data: {
-                username: $('#Username').val(),
-                password: $('#user_password').val()
+                username: username,
+                password: password
             },
             success: function(data) {
-                if (data == true) {
-                    linkmenu('home.php')
+                if ($.trim(String(data)) === '1') {
+                    window.location.href = 'home.php';
                 } else {
-                    Swal.fire(
-                        'รหัสผ่านของคุณไม่ถูกต้อง',
-                        '',
-                        'error'
-                    )
+                    errorMessage.text('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
                 }
+            },
+            error: function() {
+                errorMessage.text('ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองอีกครั้ง');
+            },
+            complete: function() {
+                submitButton.prop('disabled', false).html('<span>เข้าสู่ระบบ</span><i class="fas fa-arrow-right" aria-hidden="true"></i>');
             }
         });
     }

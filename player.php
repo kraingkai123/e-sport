@@ -5,8 +5,8 @@ include("./session_chk.php");
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>PLAYER</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">ROSTER</span><h1>นักกีฬา</h1><p>จัดการข้อมูลผู้เล่นและทีม</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -20,7 +20,7 @@ include("./session_chk.php");
                 <div id="content">
 
                     <br>
-                    <div class="container-fluid">
+                    <div class="container-fluid page-toolbar">
                         <button type="button" class="btn btn-primary" onclick="linkmenu('add_player.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
                         <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
                     </div>

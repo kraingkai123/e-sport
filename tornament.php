@@ -5,8 +5,8 @@ include("./session_chk.php");
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>TORNAMENT</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">COMPETITION</span><h1>ทัวร์นาเมนต์</h1><p>จัดการรายการแข่งขันและช่วงเวลา</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -19,7 +19,7 @@ include("./session_chk.php");
                 <!-- Main Content -->
                 <div id="content">
                     <br>
-                    <div class="container-fluid">
+                    <div class="container-fluid page-toolbar">
                         <button type="button" class="btn btn-primary" onclick="linkmenu('add_tornament.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
                         <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
                     </div>

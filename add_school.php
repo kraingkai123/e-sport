@@ -20,8 +20,8 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>SCHOOL</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">ORGANIZATIONS</span><h1><?php echo $_GET['proc'] == 'add' ? 'เพิ่มสถานศึกษา' : 'แก้ไขข้อมูลสถานศึกษา'; ?></h1><p>จัดการข้อมูลโรงเรียนและหน่วยงาน</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -35,7 +35,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_school.php" enctype="multipart/form-data" id="frm_school">
+                        <form method="post" action="proc_school.php" enctype="multipart/form-data" id="frm_school" class="form-layout">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="school_id" id="school_id" value="<?php echo $_GET['school_id']; ?>">
                             <div class="form-group  row">

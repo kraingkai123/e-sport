@@ -18,10 +18,14 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>ADD PLAYER</h3>
+<div class="container-fluid page-heading">
+    <div>
+        <span class="page-kicker">MATCH DETAIL</span>
+        <h1>บันทึกสถิติผู้เล่น</h1>
+        <p>เพิ่มและติดตามสถิติรายเกม</p>
+    </div>
 </div>
-<div class="card ">
+<div class="card stats-page-shell">
     <div class="card-body">
         <div id="wrapper">
 
@@ -33,14 +37,14 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_detail_match.php" id="frm_detail">
+                        <form method="post" action="proc_detail_match.php" id="frm_detail" class="stats-entry-form">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="match_id" id="match_id" value="<?php echo $_GET['match_id']; ?>">
                             <input type="hidden" name="m_detail_id" id="m_detail_id" value="<?php echo $_GET['m_detail_id']; ?>">
 
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">MATCH</label>
+                                    <span class="stats-field-label">แมตช์</span>
                                 </div>
                                 <div class="col-sm-4">
                                     <?php
@@ -51,9 +55,9 @@ if ($_GET['proc'] == 'add') {
                                     echo $PLAY_TEAM; ?>
                                 </div>
                             </div>
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">MATCH NAME</label>
+                                    <span class="stats-field-label">เกม</span>
                                 </div>
                                 <div class="col-sm-4">
                                     <?php
@@ -64,9 +68,9 @@ if ($_GET['proc'] == 'add') {
                                     ?>
                                 </div>
                             </div>
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">TEAM</label>
+                                    <span class="stats-field-label">เลือกทีม</span>
                                 </div>
                                 <div class="col-sm-4">
                                     <?php
@@ -78,30 +82,29 @@ if ($_GET['proc'] == 'add') {
                                         }
                                     ?>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="team_id" id="team_id" value="<?php echo $value_team; ?>" onclick="get_player(this.value)">
-                                            <label class="form-check-label" for="inlineRadio1"><?php echo $value ?></label>
+                                            <input class="form-check-input" type="radio" name="team_id" id="team_id_<?php echo htmlspecialchars($key, ENT_QUOTES, 'UTF-8'); ?>" value="<?php echo $value_team; ?>" onclick="get_player(this.value)" required>
+                                            <label class="form-check-label" for="team_id_<?php echo htmlspecialchars($key, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></label>
                                         </div>
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">PLAYER</label>
+                                    <label class="stats-field-label" for="player_id">ผู้เล่น</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <div id="show_player"><span style="color:red">Plase select team</span></div>
-                                    </select>
+                                    <div id="show_player"><span class="text-muted">เลือกทีมก่อนเพื่อแสดงรายชื่อผู้เล่น</span></div>
                                 </div>
                             </div>
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">HERO</label>
+                                    <label class="stats-field-label" for="hero">ฮีโร่</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select class="js-example-basic-single" name="hero" style="width: 70%" onchange="get_img(this.value);">
-                                        <option>plase select</option>
+                                    <select class="js-example-basic-single" id="hero" name="hero" onchange="get_img(this.value);" required>
+                                        <option value="" selected disabled>เลือกฮีโร่</option>
                                         <?php
                                         $SQL = "SELECT * FROM heros WHERE  hero_id NOT IN(SELECT hero_id FROM match_player_details WHERE m_detail_id ='" . $_GET['m_detail_id'] . "') ";
                                         $query = mysqli_query($conn, $SQL);
@@ -117,16 +120,15 @@ if ($_GET['proc'] == 'add') {
                                 </div>
                                 <div class="col-sm-2">
                                     <div id="show_img"></div>
-                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group  row">
+                            <div class="form-group row stats-context-row">
                                 <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">LANE</label>
+                                    <label class="stats-field-label" for="lane">เลน</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select class="js-example-basic-single" name="lane" style="width: 70%">
-                                        <option>plase select</option>
+                                    <select class="js-example-basic-single" id="lane" name="lane" required>
+                                        <option value="" selected disabled>เลือกเลน</option>
                                         <?php
                                         $SQL = "SELECT * FROM lanes ";
                                         $query = mysqli_query($conn, $SQL);
@@ -142,66 +144,51 @@ if ($_GET['proc'] == 'add') {
                                 </div>
 
                             </div>
-                            <div class="form-group  row">
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">KILL</label>
+                            <div class="stats-grid">
+                                <div class="form-group">
+                                    <label for="kill">Kill</label>
+                                    <input type="number" min="0" step="1" inputmode="numeric" class="form-control" id="kill" name="kill" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="kill" name="kill" placeholder="KILL">
+                                <div class="form-group">
+                                    <label for="death">Death</label>
+                                    <input type="number" min="0" step="1" inputmode="numeric" class="form-control" id="death" name="death" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">DEATH</label>
+                                <div class="form-group">
+                                    <label for="assist">Assist</label>
+                                    <input type="number" min="0" step="1" inputmode="numeric" class="form-control" id="assist" name="assist" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="death" name="death" placeholder="DEATH">
+                                <div class="form-group">
+                                    <label for="gold">Gold</label>
+                                    <input type="number" min="0" step="1" inputmode="numeric" class="form-control" id="gold" name="gold" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">ASSIST</label>
+                                <div class="form-group">
+                                    <label for="mvp">MVP</label>
+                                    <input type="number" min="0" step="any" inputmode="decimal" class="form-control" id="mvp" name="mvp" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="assist" name="assist" placeholder="ASSIST">
+                                <div class="form-group">
+                                    <label for="atk">ATK</label>
+                                    <input type="number" min="0" step="any" inputmode="decimal" class="form-control" id="atk" name="atk" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">GOLD</label>
+                                <div class="form-group">
+                                    <label for="defense">Defense</label>
+                                    <input type="number" min="0" step="any" inputmode="decimal" class="form-control" id="defense" name="defense" placeholder="0">
                                 </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="gold" name="gold" placeholder="GOLD">
+                                <div class="form-group">
+                                    <label for="teme_fight">Team fight</label>
+                                    <input type="number" min="0" step="any" inputmode="decimal" class="form-control" id="teme_fight" name="teme_fight" placeholder="0">
                                 </div>
                             </div>
-                            <div class="form-group  row">
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">MVP</label>
-                                </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="mvp" name="mvp" placeholder="MVP">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">ATK</label>
-                                </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="atk" name="atk" placeholder="ATK">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">DEFENSE</label>
-                                </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="defense" name="defense" placeholder="DEFENSE">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="exampleInputEmail1">TEAM FIGHT</label>
-                                </div>
-                                <div class="col-sm-1">
-                                    <input type="text" class="form-control" id="teme_fight" name="teme_fight" placeholder="TEAM FIGHT">
-                                </div>
-
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-info" onclick="history.back()"><i class="fas fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-save" aria-hidden="true"></i> บันทึกสถิติ</button>
                             </div>
-                            <center>
-                                <button type="submit" class="btn btn-primary" onclick="add_data('add')"><i class="fa fa-pencil-square" aria-hidden="true"></i>บันทึก</button>
-                                <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
-                            </center>
                         </form>
                         <hr>
-                        <h3>TEAM : <?php echo get_team($rec['team_A']) ?> </h3>
+                        <section class="team-stats-section" aria-label="สถิติทีม <?php echo htmlspecialchars(get_team($rec['team_A']), ENT_QUOTES, 'UTF-8'); ?>">
+                            <div class="team-stats-heading">
+                                <span class="page-kicker">TEAM A</span>
+                                <h2><?php echo htmlspecialchars(get_team($rec['team_A']), ENT_QUOTES, 'UTF-8'); ?></h2>
+                            </div>
                         <table id="table_id" class="display" width="100%" border="1" style="border-color: black;">
                             <thead style="color:black;align:center">
                                 <tr>
@@ -250,8 +237,13 @@ if ($_GET['proc'] == 'add') {
                                 } ?>
                             </tbody>
                         </table>
+                        </section>
                         <hr>
-                        <h3>TEAM : <?php echo get_team($rec['team_B']) ?> </h3>
+                        <section class="team-stats-section" aria-label="สถิติทีม <?php echo htmlspecialchars(get_team($rec['team_B']), ENT_QUOTES, 'UTF-8'); ?>">
+                            <div class="team-stats-heading">
+                                <span class="page-kicker">TEAM B</span>
+                                <h2><?php echo htmlspecialchars(get_team($rec['team_B']), ENT_QUOTES, 'UTF-8'); ?></h2>
+                            </div>
                         <table id="table_id2" class="display" width="100%" border="1" style="border-color: black;">
                             <thead style="color:black;align:center">
                                 <tr>
@@ -301,6 +293,7 @@ if ($_GET['proc'] == 'add') {
                                 } ?>
                             </tbody>
                         </table>
+                        </section>
                     </div>
                     <!-- /.container-fluid -->
 

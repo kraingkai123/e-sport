@@ -18,8 +18,8 @@ if (empty($_POST['match_id'])) {
     }
 </style>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>REPORT TEAM</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">INSIGHTS</span><h1>สถิติทัวร์นาเมนต์</h1><p>สรุปผลการแข่งขันแยกตามทีม</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -28,15 +28,15 @@ if (empty($_POST['match_id'])) {
             <!-- Content Wrapper -->
 
             <div id="content-wrapper" class="d-flex flex-column">
-                <form method="post" action="">
-                    <h3>SEARCH</h3>
+                <form method="post" action="" class="filter-panel">
+                    <h2 class="filter-title">ตัวกรองรายงาน</h2>
                     <div class="form-group  row">
                         <div class="col-sm-1">
-                            <label for="exampleInputEmail1">TORNAMENT</label>
+                            <label for="tour_id">ทัวร์นาเมนต์</label>
                         </div>
                         <div class="col-sm-4">
                             <select class="js-example-basic-single" id="tour_id" name="tour_id" style="width: 50%" onchange="get_match(this.value)">
-                                <option value="">SELECT TORNAMENT</option>
+                                <option value="">เลือกทัวร์นาเมนต์</option>
                                 <?php
                                 $SQL = "SELECT * FROM tournaments ";
                                 $query = mysqli_query($conn, $SQL);
@@ -54,8 +54,8 @@ if (empty($_POST['match_id'])) {
                     </div>
                     <div class="container-fluid">
                         <center>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
-                            <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> print</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button>
+                            <button type="button" class="btn btn-success" onclick="print_div()"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button>
                             <button type="button" class="btn btn-danger float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
                         </center>
 

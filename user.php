@@ -5,8 +5,8 @@ include("./session_chk.php");
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>USER</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">ACCESS</span><h1>ผู้ใช้งาน</h1><p>จัดการบัญชีและสิทธิ์เข้าถึง</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -19,7 +19,7 @@ include("./session_chk.php");
                 <!-- Main Content -->
                 <div id="content">
                     <br>
-                    <div class="container-fluid">
+                    <div class="container-fluid page-toolbar">
 
                         <button type="button" class="btn btn-primary" onclick="linkmenu('add_user.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
 

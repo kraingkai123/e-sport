@@ -18,8 +18,8 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>เพิ่มข้อมูลทัวป์นาเม้น</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">COMPETITION</span><h1><?php echo $_GET['proc'] == 'add' ? 'เพิ่มทัวร์นาเมนต์' : 'แก้ไขข้อมูลทัวร์นาเมนต์'; ?></h1><p>กำหนดชื่อและช่วงเวลาการแข่งขัน</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -33,7 +33,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_tournament.php" id="frm_tour">
+                        <form method="post" action="proc_tournament.php" id="frm_tour" class="form-layout">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="tour_id" id="tour_id" value="<?php echo $_GET['tour_id']; ?>">
                             <div class="form-group  row">

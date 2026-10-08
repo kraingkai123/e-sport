@@ -18,8 +18,8 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>TEAM</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">ROSTER</span><h1><?php echo $_GET['proc'] == 'add' ? 'เพิ่มทีมแข่งขัน' : 'แก้ไขข้อมูลทีม'; ?></h1><p>จัดการทีมและสถานศึกษา</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -33,7 +33,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_team.php" enctype="multipart/form-data" id="frm_team">
+                        <form method="post" action="proc_team.php" enctype="multipart/form-data" id="frm_team" class="form-layout">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="team_id" id="team_id" value="<?php echo $_GET['team_id']; ?>">
                             <div class="form-group  row">

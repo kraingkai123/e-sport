@@ -14,8 +14,8 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>LANES</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">GAME DATA</span><h1><?php echo $_GET['proc'] == 'add' ? 'เพิ่มข้อมูลเลน' : 'แก้ไขข้อมูลเลน'; ?></h1><p>จัดการตำแหน่งการเล่นในเกม</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -29,7 +29,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_lane.php" id="frm_lane">
+                        <form method="post" action="proc_lane.php" id="frm_lane" class="form-layout">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="lane_id" id="lane_id" value="<?php echo $_GET['lane_id']; ?>">
                             <div class="form-group  row">

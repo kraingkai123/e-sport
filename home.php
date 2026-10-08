@@ -4,10 +4,14 @@ include("./session_chk.php"); //ดักการเข้าผ่านไฟ
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>MENU</h3>
+<div class="container-fluid page-heading">
+    <div>
+        <span class="page-kicker">COMPETITION DESK</span>
+        <h1>ศูนย์ควบคุมการแข่งขัน</h1>
+        <p>RoV Match Center</p>
+    </div>
 </div>
-<div class="card ">
+<div class="dashboard-shell">
 
     <div class="card-body">
         <div id="wrapper">
@@ -22,20 +26,21 @@ include("./session_chk.php"); //ดักการเข้าผ่านไฟ
                     <div class="container-fluid">
 
                         <!-- Content Row -->
-                        <div class="row">
+                        <div class="row menu-grid">
                             <!-- Earnings (Monthly) Card Example -->
                             <?php
                             $i = 0;
                             foreach ($array_menu_admin_main['MENU'] as $key => $value) {
                             ?>
 
-                                <div class="col-xl-3 col-md-6 mb-4 mt-4" onclick="linkmenu('<?php echo $value['url']; ?>')">
-                                    <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="col-xl-3 col-md-6 mb-4 mt-4">
+                                    <a class="menu-card-link" href="<?php echo htmlspecialchars($value['url'], ENT_QUOTES, 'UTF-8'); ?>">
+                                    <div class="card menu-card h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class=" font-weight-bold text-primary text-uppercase mb-1">
-                                                        <?php echo $value['name'] ?></div>
+                                                        <?php echo htmlspecialchars($value['name'], ENT_QUOTES, 'UTF-8'); ?></div>
 
                                                 </div>
                                                 <div class="col-auto">
@@ -44,6 +49,7 @@ include("./session_chk.php"); //ดักการเข้าผ่านไฟ
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
 
                             <?php

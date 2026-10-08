@@ -5,8 +5,8 @@ include("./session_chk.php");
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>TEAM</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">ROSTER</span><h1>ทีมแข่งขัน</h1><p>จัดการทีมและสถานศึกษา</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -18,7 +18,7 @@ include("./session_chk.php");
 
                 <!-- Main Content -->
                 <div id="content">
-                    <div class="container-fluid" style="margin-top: 15px; margin-bottom: 15px;">
+                    <div class="container-fluid page-toolbar">
                         <button type="button" class="btn btn-primary" onclick="linkmenu('add_team.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
 
                         <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>

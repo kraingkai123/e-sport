@@ -5,8 +5,8 @@ include("./session_chk.php");
 
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>HERO</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">GAME DATA</span><h1>ข้อมูลฮีโร่</h1><p>จัดการรายชื่อฮีโร่ในเกม</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -19,7 +19,7 @@ include("./session_chk.php");
                 <!-- Main Content -->
                 <div id="content">
                     <br>
-                    <div class="container-fluid">
+                    <div class="container-fluid page-toolbar">
 
                         <button type="button" class="btn btn-primary" onclick="linkmenu('add_hero.php?proc=add')"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</button>
 

@@ -17,8 +17,8 @@ if ($_GET['proc'] == 'add') {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>HERO</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">GAME DATA</span><h1><?php echo $_GET['proc'] == 'add' ? 'เพิ่มข้อมูลฮีโร่' : 'แก้ไขข้อมูลฮีโร่'; ?></h1><p>จัดการข้อมูลฮีโร่ในเกม</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -32,7 +32,7 @@ if ($_GET['proc'] == 'add') {
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <form method="post" action="proc_hero.php" enctype="multipart/form-data" id="frm_hero">
+                        <form method="post" action="proc_hero.php" enctype="multipart/form-data" id="frm_hero" class="form-layout">
                             <input type="hidden" name="proc" id="proc" value="<?php echo $_GET['proc']; ?>">
                             <input type="hidden" name="hero_id" id="hero_id" value="<?php echo $_GET['hero_id']; ?>">
                             <div class="form-group  row">

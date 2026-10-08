@@ -10,8 +10,8 @@ if (empty($_POST['match_id'])) {
 }
 ?>
 <!-- Page Wrapper -->
-<div style="padding:10px;color:black">
-    <h3>GAME</h3>
+<div class="container-fluid page-heading">
+    <div><span class="page-kicker">MATCH OPERATIONS</span><h1>เกมการแข่งขัน</h1><p>ค้นหาแมตช์และจัดการผลการแข่งขัน</p></div>
 </div>
 <div class="card ">
     <div class="card-body">
@@ -20,15 +20,15 @@ if (empty($_POST['match_id'])) {
             <!-- Content Wrapper -->
 
             <div id="content-wrapper" class="d-flex flex-column">
-                <form method="post" action="">
-                    <h3>SEARCH</h3>
+                <form method="post" action="" class="filter-panel">
+                    <h2 class="filter-title">ตัวกรอง</h2>
                     <div class="form-group  row">
                         <div class="col-sm-1">
-                            <label for="exampleInputEmail1">TORNAMENT</label>
+                            <label for="tour_id">ทัวร์นาเมนต์</label>
                         </div>
                         <div class="col-sm-4">
                             <select class="js-example-basic-single" id="tour_id" name="tour_id" style="width: 50%" onchange="get_match(this.value)">
-                                <option value="">SELECT TORNAMENT</option>
+                                <option value="">เลือกทัวร์นาเมนต์</option>
                                 <?php
                                 $SQL = "SELECT * FROM tournaments ";
                                 $query = mysqli_query($conn, $SQL);
@@ -43,11 +43,11 @@ if (empty($_POST['match_id'])) {
                             </select>
                         </div>
                         <div class="col-sm-1">
-                            <label for="exampleInputEmail1">MATCH</label>
+                            <label for="match_id">แมตช์</label>
                         </div>
                         <div class="col-sm-4" id="select_match">
                             <select class="js-example-basic-single" name="match_id" name="match_id" style="width: 50%">
-                                <option value="">SELECT MATCH</option>
+                                <option value="">เลือกแมตช์</option>
                                 <?php
                                 $filter2 = "";
                                 if (!empty($_POST['tour_id'])) {
@@ -69,7 +69,7 @@ if (empty($_POST['match_id'])) {
                     </div>
                     <div class="container-fluid">
                         <div align="center">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button>
 
                             <button type="button" class="btn btn-info float-right ml-2" onclick="history.back()">ย้อนกลับ</button>
                         </div>
